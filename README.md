@@ -155,7 +155,7 @@ This project is open-source under the **MIT License**.
 🎓 B.Sc. Computer Science, Rayalaseema University  
 📍 Kurnool, Andhra Pradesh  
 💻 Skills: Python, SQL, Machine Learning, Data Analysis  
-🔗 [LinkedIn](https://www.linkedin.com/in/ashmanjum04) | [GitHub](https://github.com/ashmanjum04)
+🔗 [LinkedIn](www.linkedin.com/in/dongri-ashmanjum-92b327355) | [GitHub](https://github.com/ashmanjum04)
 
 ---
 
