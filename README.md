@@ -1,12 +1,30 @@
-Customer Churn Prediction using Artificial Neural Networks (ANN)
-This project implements a binary classification model using a Deep Neural Network (DNN) built with Keras/TensorFlow to predict whether a bank customer is likely to churn (exit the bank) or not. The solution includes data preprocessing, model training, persistence of preprocessing tools, and a Streamlit web application for real-time prediction.
+# 🧠 ANN Classification – Customer Churn Prediction
 
-🚀 Project Goal
-The primary objective is to accurately predict customer attrition to enable proactive intervention strategies.
+This project uses an **Artificial Neural Network (ANN)** model to predict **Customer Churn** — i.e., whether a customer will leave a bank or stay — based on various demographic and financial factors.
 
-📁 Repository Structure
-The core files for this project are organized in the repository root:
+---
 
+## 📘 Project Overview
+
+Customer churn prediction is a key problem in the banking and telecom sectors. The goal is to classify whether a customer is likely to leave based on parameters such as age, balance, credit score, activity, etc.
+
+This project demonstrates how to build, train, and evaluate an ANN using **Python** and **TensorFlow/Keras**, starting from data preprocessing to final predictions.
+
+---
+
+## 🧩 Features
+
+- Data preprocessing (encoding categorical variables, scaling)
+- ANN model creation using **Keras Sequential API**
+- Model training and validation
+- Performance evaluation using accuracy and confusion matrix
+- User input prediction through a simple Python interface
+
+---
+
+## 📂 Project Structure
+
+```
 ANN-Classification-Churn/
 ├── app.py                      # 💻 Streamlit web application for real-time prediction.
 ├── experiments.ipynb           # 🧪 Jupyter Notebook for data exploration, preprocessing, and model training.
@@ -18,69 +36,127 @@ ANN-Classification-Churn/
 ├── onehot_encoder_geo.pkl      # Saved OneHotEncoder object (for 'Geography' column encoding).
 ├── requirements.txt            # Python dependencies needed to run the project.
 └── README.md                   # This file.
-✨ Model and Methodology
-Data Preprocessing
-Feature Removal: Irrelevant columns (RowNumber, CustomerId, Surname) were dropped.
 
-Label Encoding: The Gender column was converted to numerical format (0 and 1) using LabelEncoder.
+---
 
-One-Hot Encoding: The Geography column was converted into three binary columns (Geography_France, Geography_Germany, Geography_Spain) using OneHotEncoder.
+## 🧠 Technologies Used
 
-Scaling: All numerical features were standardized using StandardScaler to prepare the data for the ANN.
+| Category | Tools / Libraries |
+|-----------|------------------|
+| Programming | Python 3.11 |
+| Libraries | TensorFlow, Keras, NumPy, Pandas, Scikit-learn, Matplotlib |
+| Environment | Jupyter Notebook / VS Code |
+| Version Control | Git & GitHub |
 
-ANN Architecture
-The model is a Sequential Deep Neural Network with 12 input features and a single output layer:
+---
 
-Input Layer: Expects 12 features.
+## ⚙️ Installation & Setup
 
-Hidden Layer 1: 64 neurons, ReLU activation.
-
-Hidden Layer 2: 32 neurons, ReLU activation.
-
-Output Layer: 1 neuron, Sigmoid activation (for binary probability output).
-
-Compilation: Uses the Adam optimizer and binary_crossentropy loss.
-
-Training: Training included EarlyStopping with a patience of 5.
-
-🔧 Setup and Installation
-Follow these steps to set up the project environment:
-
-1. Clone the Repository
-Bash
-
+### 1. Clone this repository
+```bash
 git clone https://github.com/ashmanjum04/ANN-Classification-Churn.git
 cd ANN-Classification-Churn
-2. Create and Activate Virtual Environment
-It's highly recommended to use a virtual environment:
+```
 
-Bash
+### 2. Create and activate a virtual environment
+```bash
+python -m venv venv
+venv\Scripts\activate        # for Windows
+# source venv/bin/activate   # for Linux/Mac
+```
 
-# Using Python's built-in venv
-python -m venv churn-env
-source churn-env/bin/activate  # On Windows, use: churn-env\Scripts\activate
-3. Install Dependencies
-Install all necessary libraries using the requirements.txt file:
-
-Bash
-
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
-4. Verify Model Assets
-Ensure the following files are present in the repository root, as they are essential for the app.py script to run:
+```
 
-model.h5
+### 4. Run the Jupyter Notebook
+```bash
+jupyter notebook ann_classification.ipynb
+```
 
-scaler.pickle
+---
 
-label_encoder_gender.pkl
+## 🧬 Model Summary
 
-onehot_encoder_geo.pkl
+- **Input Layer:** 11 features  
+- **Hidden Layers:** 2 fully connected layers (ReLU activation)  
+- **Output Layer:** 1 neuron (Sigmoid activation for binary classification)  
+- **Loss Function:** Binary Crossentropy  
+- **Optimizer:** Adam  
+- **Metric:** Accuracy  
 
-🚀 How to Run the Streamlit Web App
-Once the setup is complete and the assets are verified, run the Streamlit application from your terminal:
+---
 
-Bash
+## 📊 Results
 
-streamlit run app.py
-This command will launch the application in your web browser, allowing you to input customer data and receive a churn probability prediction.
+- **Training Accuracy:** ~86%
+- **Testing Accuracy:** ~84%
+- **Confusion Matrix** used to evaluate precision and recall
 
+---
+
+## 🧑‍💻 Sample Prediction
+
+```python
+# Example input for prediction
+input_data = {
+    'CreditScore': 650,
+    'Geography': 'France',
+    'Gender': 'Male',
+    'Age': 40,
+    'Tenure': 3,
+    'Balance': 60000,
+    'NumOfProducts': 2,
+    'HasCrCard': 1,
+    'IsActiveMember': 1,
+    'EstimatedSalary': 50000
+}
+```
+
+The model predicts whether the customer will **Exit (1)** or **Stay (0)**.
+
+---
+
+## 📈 Visualization
+
+- Training vs Validation Accuracy
+- Confusion Matrix
+- Loss and Accuracy curves for model performance analysis
+
+---
+
+## 💡 Learning Highlights
+
+- Understanding of **ANN architecture** and **forward propagation**
+- Data preprocessing using **LabelEncoder** and **StandardScaler**
+- Handling categorical variables (Gender, Geography)
+- Saving and loading trained models (`.h5` files)
+- Performing predictions on new user data
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to fork this repo and submit a pull request.
+
+---
+
+## 🧾 License
+
+This project is open-source under the **MIT License**.
+
+---
+
+## ✨ Author
+
+**👤 Dongri Ashmanjum**  
+🎓 B.Sc. Computer Science, Rayalaseema University  
+📍 Kurnool, Andhra Pradesh  
+💻 Skills: Python, SQL, Machine Learning, Data Analysis  
+🔗 [LinkedIn](https://www.linkedin.com/in/ashmanjum04) | [GitHub](https://github.com/ashmanjum04)
+
+---
+
+⭐ **If you like this project, give it a star on GitHub!**
